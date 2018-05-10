@@ -16,6 +16,7 @@ set(CMAKE_OBJCOPY    	"${USER_COMPILER_PATH}/arm-none-eabi-objcopy")
 set(CMAKE_OBJDUMP    	"${USER_COMPILER_PATH}/arm-none-eabi-objdump")
 set(CMAKE_STRIP 	"${USER_COMPILER_PATH}/arm-none-eabi-strip")
 set(CMAKE_RANLIB	"${USER_COMPILER_PATH}/arm-none-eabi-ranlib")
+set(CMAKE_SIZE          "${USER_COMPILER_PATH}/arm-none-eabi-size")
 
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM	NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY	ONLY)
