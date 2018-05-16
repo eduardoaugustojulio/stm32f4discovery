@@ -9,6 +9,13 @@ set(USER_COMPILER_PATH "$ENV{HOME}/gcc-arm-none-eabi-7/bin")
 CMAKE_FORCE_C_COMPILER("${USER_COMPILER_PATH}/arm-none-eabi-gcc"   GNU)
 CMAKE_FORCE_CXX_COMPILER("${USER_COMPILER_PATH}/arm-none-eabi-g++" GNU)
 
+add_definitions(-DSTM32F4)
+set(PROCESSOR_FLAGS "-mthumb -mcpu=cortex-m4")
+set(LD_FLAGS "-nostartfiles -specs=rdimon.specs -specs=nano.specs -specs=nosys.specs")
+set(COMMON_FLAGS "${PROCESSOR_FLAGS} -mfloat-abi=hard -mfpu=fpv4-sp-d16")
+set(CMAKE_C_FLAGS "-g -O2 -Wall --std=c11 ${COMMON_FLAGS} ${CMAKE_C_FLAGS}") 
+set(CMAKE_CXX_FLAGS "-g -O2 --std=c++14 -fno-rtti -fno-exceptions ${COMMON_FLAGS} ${CMAKE_CXX_FLAGS}")
+
 set(CMAKE_AR		"${USER_COMPILER_PATH}/arm-none-eabi-ar")
 set(CMAKE_LINKER	"${USER_COMPILER_PATH}/arm-none-eabi-ld")
 set(CMAKE_NM		"${USER_COMPILER_PATH}/arm-none-eabi-nm")
